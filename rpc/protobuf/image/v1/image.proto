@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package image.v1;
+option go_package = "github.com/pwlae/playground/rpc/protobuf/image/v1";
+
+message Image {
+    string original = 1;
+    string small = 2;
+    string medium = 3;
+    string large = 4;
+}
