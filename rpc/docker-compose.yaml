@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  server:
+    build: ./server
+    image: protobuf-test-server:latest
+    networks:
+      - protobuf-test-network
+    restart: always
+    expose:
+      - "8080"
+
+  client:
+    build: ./client
+    image: protobuf-test-client:latest
+    networks:
+      - protobuf-test-network
+    restart: always
+    depends_on:
+      - server
+
+networks:
+  protobuf-test-network:
+    driver: bridge
